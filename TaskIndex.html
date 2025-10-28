@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Task Manager • Algonive Internship</title>
+  <link rel="stylesheet" href="TaskStyle.css" />
+</head>
+<body>
+  <main class="app">
+    <header class="header">
+      <h1>📝 Task Manager</h1>
+      <p class="subtitle">Simple, elegant task manager — add deadlines, reminders & save locally</p>
+    </header>
+
+    <section class="panel form-panel">
+      <input id="taskTitle" type="text" placeholder="Task title" />
+      <textarea id="taskDesc" rows="2" placeholder="Description (optional)"></textarea>
+
+      <div class="row">
+        <input id="taskDate" type="date" />
+        <button id="addTaskBtn" class="btn primary">Add Task</button>
+      </div>
+    </section>
+
+    <section class="panel controls-panel">
+      <div class="controls-left">
+        <input id="searchInput" type="search" placeholder="Search tasks..." />
+        <select id="sortSelect" title="Sort by deadline">
+          <option value="none">Sort by</option>
+          <option value="asc">Deadline ↑ (Soonest)</option>
+          <option value="desc">Deadline ↓ (Latest)</option>
+        </select>
+      </div>
+
+      <div class="filters">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="pending">Pending</button>
+        <button class="filter-btn" data-filter="completed">Completed</button>
+      </div>
+    </section>
+
+    <section class="panel list-panel">
+      <ul id="taskList" class="task-list"></ul>
+      <p id="emptyMsg" class="empty">No tasks yet — add one above!</p>
+    </section>
+
+    <footer class="footer">
+      <small>Project: Algonive • Task Manager (HTML/CSS/JS) • Save to GitHub: <code>Algonive_TaskManager</code></small>
+    </footer>
+  </main>
+
+  <!-- Toast container -->
+  <div id="toast" class="toast" aria-live="polite"></div>
+
+  <script src="TaskScript.js"></script>
+</body>
+</html>
