@@ -1,57 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Task Manager • Algonive Internship</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Task Manager</title>
   <link rel="stylesheet" href="TaskStyle.css" />
 </head>
 <body>
-  <main class="app">
-    <header class="header">
-      <h1>📝 Task Manager</h1>
-      <p class="subtitle">Simple, elegant task manager — add deadlines, reminders & save locally</p>
-    </header>
+  <div class="app">
+    <h1 class="title">📝 Task Manager</h1>
 
-    <section class="panel form-panel">
-      <input id="taskTitle" type="text" placeholder="Task title" />
-      <textarea id="taskDesc" rows="2" placeholder="Description (optional)"></textarea>
+    <div class="add-task">
+      <input type="text" id="taskTitle" placeholder="Task title..." />
+      <textarea id="taskDesc" placeholder="Task description..."></textarea>
+      <input type="date" id="taskDate" />
+      <button id="addTaskBtn">Add Task</button>
+    </div>
 
-      <div class="row">
-        <input id="taskDate" type="date" />
-        <button id="addTaskBtn" class="btn primary">Add Task</button>
-      </div>
-    </section>
+    <div class="top-bar">
+      <input type="text" id="searchInput" placeholder="🔍 Search tasks..." />
+      <select id="sortSelect">
+        <option value="none">Sort by</option>
+        <option value="date-asc">Due Date ↑</option>
+        <option value="date-desc">Due Date ↓</option>
+        <option value="title-az">Title A–Z</option>
+        <option value="title-za">Title Z–A</option>
+      </select>
+    </div>
 
-    <section class="panel controls-panel">
-      <div class="controls-left">
-        <input id="searchInput" type="search" placeholder="Search tasks..." />
-        <select id="sortSelect" title="Sort by deadline">
-          <option value="none">Sort by</option>
-          <option value="asc">Deadline ↑ (Soonest)</option>
-          <option value="desc">Deadline ↓ (Latest)</option>
-        </select>
-      </div>
+    <div class="filters">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="pending">Pending</button>
+      <button class="filter-btn" data-filter="completed">Completed</button>
+    </div>
 
-      <div class="filters">
-        <button class="filter-btn active" data-filter="all">All</button>
-        <button class="filter-btn" data-filter="pending">Pending</button>
-        <button class="filter-btn" data-filter="completed">Completed</button>
-      </div>
-    </section>
-
-    <section class="panel list-panel">
-      <ul id="taskList" class="task-list"></ul>
-      <p id="emptyMsg" class="empty">No tasks yet — add one above!</p>
-    </section>
-
-    <footer class="footer">
-      <small>Project: Algonive • Task Manager (HTML/CSS/JS) • Save to GitHub: <code>Algonive_TaskManager</code></small>
-    </footer>
-  </main>
-
-  <!-- Toast container -->
-  <div id="toast" class="toast" aria-live="polite"></div>
+    <div class="task-list"></div>
+  </div>
 
   <script src="TaskScript.js"></script>
 </body>
